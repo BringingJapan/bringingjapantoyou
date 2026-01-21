@@ -6,6 +6,11 @@ padding: 10px 18px;
 font-size: 13px;
 }
 
+html, body {
+   width: 100%;
+   overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
