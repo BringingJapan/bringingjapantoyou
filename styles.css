@@ -107,6 +107,32 @@ nav a {
 }
 
 footer {
+
+  @media (max-width: 900px) {
+.header {
+padding: 16px 18px;
+flex-direction: column;
+gap: 12px;
+}
+
+.hero {
+padding: 70px 18px;
+}
+
+.hero h1 {
+font-size: 28px;
+}
+
+.categories {
+grid-template-columns: 1fr;
+padding: 30px 18px;
+}
+
+.product-grid {
+grid-template-columns: 1fr;
+padding: 30px 18px;
+}
+}
   text-align: center;
   padding: 40px;
   border-top: 1px solid #eee;
