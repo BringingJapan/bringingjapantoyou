@@ -162,3 +162,41 @@ padding: 30px 18px;
   border-top: 1px solid #eee;
   color: #777;
 }
+
+/* ✅ Mobile stability fixes */
+html, body {
+width: 100%;
+overflow-x: hidden;
+}
+
+* {
+box-sizing: border-box;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+body {
+margin: 0;
+line-height: 1.6;
+overflow-wrap: break-word;
+word-break: break-word;
+}
+
+/* Avoid text getting squeezed in nav */
+nav {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+justify-content: center;
+text-align: center;
+}
+
+/* Prevent buttons/links from causing overflow */
+.btn-primary {
+max-width: 100%;
+white-space: normal;
+text-align: center;
+}
