@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  color: #111;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.kanji {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.brand {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+nav a {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.hero {
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 40px;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 30px;
+  background: #111;
+  color: white;
+  border-radius: 6px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 60px 40px;
+}
+
+.category {
+  padding: 40px;
+  border: 1px solid #eee;
+  text-align: center;
+  font-weight: 600;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 60px 40px;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.trust {
+  padding: 60px 40px;
+  background: #fafafa;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid #eee;
+  color: #777;
+}
