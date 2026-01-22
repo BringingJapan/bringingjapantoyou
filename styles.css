@@ -6,6 +6,10 @@ padding: 10px 18px;
 font-size: 13px;
 }
 
+.navigation {
+   color: #660746;
+}
+
 html, body {
    width: 100%;
    overflow-x: hidden;
