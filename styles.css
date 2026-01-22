@@ -255,3 +255,26 @@ padding: 30px 18px;
 .footer-newsletter > button:hover {
    background-color: #8c94b8
 }
+
+.divider {
+   border: 1px solid #8c94b8;
+   margin: 0.5rem 0rem;
+}
+
+.webright {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.webright-left {
+   color: #d5d5d5;
+   font-size: 0.8rem;
+}
+
+.webright-right {
+   text-decoration: none;
+   color: #d5d5d5;
+   font-size: 0.8rem;
+   padding-right: 10px;
+}
