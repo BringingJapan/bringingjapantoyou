@@ -46,7 +46,7 @@ a {
   align-items: center;
 }
 
-.kanji {
+.zen-antique-soft-regular {
   font-family: "Zen Antique Soft", serif;
   font-weight: 400;
   font-style: normal;
@@ -178,4 +178,19 @@ padding: 30px 18px;
   font-family: "Permanent Marker", cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+.social-media {
+ text-align: center;
+}
+
+.social-media > a {
+   text-decoration: none;
+   color: #d5d5d5;
+   font-size: 1.2rem;
+   width: 2.3rem;
+}
+
+.social-media > a:hover {
+   color: #8c94b8;
 }
