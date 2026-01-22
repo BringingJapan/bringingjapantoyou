@@ -194,3 +194,16 @@ padding: 30px 18px;
 .social-media > a:hover {
    color: #8c94b8;
 }
+
+.footer-container {
+   display: flex;
+   flex-wrap: wrap;
+}
+.footer-wrapper {
+   display: flex;
+   width: 100%;
+   flex: 1;
+   flex-direction: column;
+   justify-content: flex-start;
+   padding: 0.8rem;
+}
