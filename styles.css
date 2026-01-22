@@ -270,6 +270,7 @@ padding: 30px 18px;
 .webright-left {
    color: #d5d5d5;
    font-size: 0.8rem;
+   text-align: center;
 }
 
 .webright-right {
@@ -277,4 +278,5 @@ padding: 30px 18px;
    color: #d5d5d5;
    font-size: 0.8rem;
    padding-right: 10px;
+   text-align: center;
 }
