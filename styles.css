@@ -52,10 +52,12 @@ a {
   align-items: center;
 }
 
-.zen-antique-soft-regular {
+.kanji {
   font-family: "Zen Antique Soft", serif;
   font-weight: 400;
   font-style: normal;
+   font-size: 30px;
+   color: #660746;
 }
 
 .brand {
