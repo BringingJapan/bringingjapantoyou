@@ -132,7 +132,7 @@ nav a {
 
 footer {
 
-  @media (max-width: 500px) {
+  @media (max-device-width: 500px) {
 .header {
 padding: 16px 18px;
 flex-direction: column;
