@@ -15,6 +15,12 @@ html, body {
    box-sizing: border-box;
 }
 
+.wagen {
+    font-family: "Zen Antique Soft", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 img{
    max-width: 100%;
    height: auto;
