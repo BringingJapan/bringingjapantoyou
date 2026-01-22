@@ -47,10 +47,9 @@ a {
 }
 
 .kanji {
-  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: "Zen Antique Soft", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .brand {
