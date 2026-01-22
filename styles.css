@@ -207,3 +207,8 @@ padding: 30px 18px;
    justify-content: flex-start;
    padding: 0.8rem;
 }
+
+.footer-wrapper > h4 {
+   color: #d5d5d5
+   line-height: 4;
+}
