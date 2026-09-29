@@ -6,7 +6,8 @@
   "scripts": {
     "check:html": "htmlhint \"*.html\"",
     "check:links": "node scripts/check-links.js",
-    "check": "npm run check:html && npm run check:links"
+    "check": "npm run check:html && npm run check:links && npm run check:js",
+    "check:js": "node --check app.js"
   },
   "devDependencies": {
     "htmlhint": "^1.6.3"
