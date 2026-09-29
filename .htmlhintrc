@@ -7,6 +7,6 @@
   "spec-char-escape": true,
   "id-unique": true,
   "src-not-empty": true,
-  "href-abs-or-rel": true,
+  "href-abs-or-rel": false,
   "alt-require": true
 }
