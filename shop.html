@@ -1,117 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Shop — Bringing Japan to You</title>
-  <div style="margin-top: 20px; padding:16px; border:1px solid #eee; border-radius:12px; background:#fafafa;">
-<p style="margin:6px 0;"><strong>Drops</strong></p>
-<p style="margin:6px 0; color:#555;">
-New items added weekly. Follow drops — once it's gone, it's gone.
-</p>
-</div>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop authentic Japanese Pokémon cards, anime goods and culture finds from Bringing Japan 2 U.">
+  <title>Shop Japan — Bringing Japan 2 U</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <meta name="theme-color" content="#e7382d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://bringingjapan.github.io/bringingjapantoyou/shop.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bringing Japan 2 U">
+  <meta property="og:title" content="Shop Japan — Bringing Japan 2 U">
+  <meta property="og:description" content="Shop authentic Japanese Pokémon cards, anime goods and culture finds from Bringing Japan 2 U.">
+  <meta property="og:url" content="https://bringingjapan.github.io/bringingjapantoyou/shop.html">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
-  <div class="announcement">
-Ships from Japan • Tracking included • Authentic items only
-</div>
+  <div class="announcement">PRE-LAUNCH PREVIEW <span>•</span> TOKYO → YOUR COLLECTION <span>•</span> CHECKOUT COMING SOON</div>
+  <header class="site-header">
+    <a class="brand-lockup" href="index.html"><span class="brand-mark">BJ2U</span><span><strong>Bringing Japan 2 U</strong><small>日本から、あなたへ</small></span></a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a href="about.html">Our Story</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+      <button class="cart-button" type="button" data-cart-open>Bag <span data-cart-count>0</span></button>
+    </nav>
+  </header>
 
-<header class="header">
-<div class="logo">
-<span class="kanji">和源</span>
-<span class="brand">Bringing Japan to You</span>
-</div>
+  <main>
+    <section class="shop-hero">
+      <div><div class="eyebrow">THE JAPAN EDIT</div><h1>Shop the drop.</h1><p>Small batches, collector pieces and Japan-only finds. Inventory changes as we discover new items.</p></div>
+      <div class="shop-symbol">買</div>
+    </section>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="shop.html">Shop</a>
-<a href="about.html">About</a>
-<a href="faq.html">FAQ</a>
-<a href="contact.html">Contact</a>
-</nav>
-</header>
+    <section class="shop-controls">
+      <label class="search-box"><span>Search</span><input type="search" placeholder="Try “Pokémon”, “ceramic”, “mystery”…" data-product-search></label>
+      <div class="filter-row" role="group" aria-label="Product filters">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="pokemon">Pokémon</button>
+        <button class="filter-chip" data-filter="anime">Anime</button>
+        <button class="filter-chip" data-filter="culture">Japan Goods</button>
+        <button class="filter-chip" data-filter="drop">Limited Drops</button>
+      </div>
+    </section>
 
-<section style="padding: 40px; max-width: 1100px; margin: auto;">
-<h1 style="margin-bottom:10px;">Shop</h1>
-<p style="color:#555; margin-top:0;">
-Curated Japanese collectibles, anime goods, and lifestyle items — shipped directly from Japan.
-</p>
+    <section class="section-wrap shop-products">
+      <div class="shop-results"><strong data-result-count>3 products</strong><span>Curated in Japan</span></div>
+      <div class="product-grid premium-grid" data-product-grid>
+        <article class="product-card featured-product" data-product-card data-category="pokemon drop" data-search="stellar miracle pokemon cards japanese tcg 10 pack">
+          <a class="product-media" href="product-stellar10.html"><img src="img/stellar-miracle.jpg" alt="Japanese Pokémon Stellar Miracle packs"><span class="product-badge">IN STOCK</span></a>
+          <div class="product-meta"><p class="product-kicker">POKÉMON TCG • JAPAN</p><h3><a href="product-stellar10.html">Stellar Miracle — 10 Pack Bundle</a></h3><div class="product-row"><strong>$37.99</strong><button class="mini-add" data-add-cart data-name="Stellar Miracle — 10 Pack Bundle" data-price="37.99">+ Add</button></div></div>
+        </article>
 
-<div style="display:flex; gap:10px; flex-wrap:wrap; margin: 25px 0;">
-<span style="border:1px solid #eee; padding:8px 14px; border-radius:999px;">Pokémon</span>
-<span style="border:1px solid #eee; padding:8px 14px; border-radius:999px;">Anime</span>
-<span style="border:1px solid #eee; padding:8px 14px; border-radius:999px;">Japanese Goods</span>
-<span style="border:1px solid #eee; padding:8px 14px; border-radius:999px;">Limited Drops</span>
-</div>
-</section>
+        <article class="product-card editorial-card" data-product-card data-category="pokemon anime drop" data-search="mystery box collector pokemon anime japan">
+          <a class="product-media product-art mystery-art" href="product-mysterybox.html"><span class="product-badge neutral">COMING SOON</span><span class="art-number">01</span><strong>MYSTERY<br>FROM JAPAN</strong></a>
+          <div class="product-meta"><p class="product-kicker">POKÉMON + ANIME</p><h3><a href="product-mysterybox.html">Collector Mystery Box</a></h3><div class="product-row"><strong>$49.99</strong><a class="mini-link" href="product-mysterybox.html">Preview →</a></div></div>
+        </article>
 
-<section class="product-grid" style="max-width: 1100px; margin: auto;">
+        <article class="product-card editorial-card" data-product-card data-category="culture" data-search="japanese ceramic cup culture goods handmade style">
+          <a class="product-media product-art culture-art" href="product-ceramiccup.html"><span class="product-badge neutral">COMING SOON</span><span class="art-number">02</span><strong>JAPAN<br>CULTURE FIND</strong></a>
+          <div class="product-meta"><p class="product-kicker">JAPANESE GOODS</p><h3><a href="product-ceramiccup.html">Japanese Ceramic Cup</a></h3><div class="product-row"><strong>$35.00</strong><a class="mini-link" href="product-ceramiccup.html">Preview →</a></div></div>
+        </article>
+      </div>
+      <div class="no-results" data-no-results hidden>No matches yet. Try another search or category.</div>
+    </section>
 
-<div class="product-card">
-  <img src="img/stellar-miracle.jpg" alt="Stellar Miracle 10-Pack Bundle" style="width:100%; border-radius:10px; margin-bottom:12px;">
-<h3>Stellar Miracle (Japanese) — 10-Pack Bundle</h3>
-  <p style="display:inline-block; padding:6px 12px; border:1px solid #eee; border-radius:999px; font-size:13px; color:#444; margin:8px 0;">
-✅ In Stock • Limited Drop
-</p>
-<p style="color:#555; margin-top:-6px;">Pokémon Cards</p>
-<p class="price">$37.99</p>
-<a href="product-stellar10.html" class="btn-primary">Order Now!</a>
-</div>
+    <section class="request-banner">
+      <div><div class="eyebrow">SOURCING SERVICE</div><h2>Looking for something specific?</h2><p>Tell us what you saw in Japan and we'll use requests to shape future drops.</p></div>
+      <a class="button button-dark" href="contact.html">Send a request</a>
+    </section>
+  </main>
 
-<div class="product-card">
-<h3>Japanese Mystery Box (Collector Edition)</h3>
-  <p style="display:inline-block; padding:6px 12px; border:1px solid #eee; border-radius:999px; font-size:13px; color:#444; margin:8px 0;">
-⏳ Coming Soon
-</p>
-<p style="color:#555; margin-top:-6px;">Pokémon + Anime</p>
-<p class="price">$49.99</p>
-<a href="product-mysterybox.html" class="btn-primary">View</a>
-</div>
+  <footer class="site-footer">
+    <div class="footer-brand"><strong>BRINGING JAPAN 2 U</strong><span>日本から、あなたへ</span></div>
+    <div class="footer-links"><a href="shop.html">Shop</a><a href="about.html">Our Story</a><a href="faq.html">FAQ</a><a href="policies.html">Policies</a><a href="contact.html">Contact</a></div>
+    <p>Independent retailer of authentic Japanese goods. Brand names belong to their respective owners. © 2026 Bringing Japan 2 U.</p>
+  </footer>
 
-<div class="product-card">
-<h3>Japanese Ceramic Cup (Handmade Style)</h3>
-  <p style="display:inline-block; padding:6px 12px; border:1px solid #eee; border-radius:999px; font-size:13px; color:#444; margin:8px 0;">
-⏳ Coming Soon
-</p>
-<p style="color:#555; margin-top:-6px;">Japanese Goods</p>
-<p class="price">$35.00</p>
-<a href="product-ceramiccup.html" class="btn-primary">View</a>
-</div>
+  <aside class="cart-drawer" aria-hidden="true" data-cart-drawer>
+    <div class="cart-head"><strong>Your Bag</strong><button type="button" data-cart-close aria-label="Close bag">×</button></div>
+    <div class="cart-items" data-cart-items><p class="empty-cart">Your bag is empty.</p></div>
+    <div class="cart-foot"><div><span>Subtotal</span><strong data-cart-total>$0.00</strong></div><button class="button button-primary" type="button" disabled>Checkout coming soon</button></div>
+  </aside>
+  <div class="drawer-backdrop" data-cart-backdrop></div>
 
-</section>
-
-<footer style="padding: 50px 40px; border-top: 1px solid #eee; margin-top: 60px;">
-<div style="max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-
-<div>
-<p style="margin:0;"><strong>和源</strong></p>
-<p style="margin:8px 0; color:#555; line-height:1.6;">
-Bringing Japan to You — curated Japanese collectibles, anime goods, and lifestyle items.
-</p>
-</div>
-
-<div>
-<p style="margin:0;"><strong>Customer Info</strong></p>
-<p style="margin:8px 0;"><a href="faq.html" style="color:#555;">FAQ</a></p>
-  <p style="margin:8px 0;"><a href="policies.html" style="color:#555;">Policies</a></p>
-<p style="margin:8px 0; color:#555;">Shipping: Ships from Japan</p>
-<p style="margin:8px 0; color:#555;">Tracking: Included when available</p>
-</div>
-
-<div>
-<p style="margin:0;"><strong>Authenticity</strong></p>
-<p style="margin:8px 0; color:#555; line-height:1.6;">
-We only sell authentic items sourced in Japan. No fake or resealed products.
-</p>
-</div>
-
-</div>
-
-<p style="text-align:center; margin-top: 40px; color:#777;">
-© 2026 和源 — Bringing Japan to You
-</p>
-</footer>
-
+  <script src="app.js"></script>
 </body>
-  
 </html>

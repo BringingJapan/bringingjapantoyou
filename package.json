@@ -1,0 +1,14 @@
+{
+  "name": "bringing-japan-2-u",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium pre-launch storefront for Bringing Japan 2 U.",
+  "scripts": {
+    "check:html": "htmlhint \"*.html\"",
+    "check:links": "node scripts/check-links.js",
+    "check": "npm run check:html && npm run check:links"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.6.3"
+  }
+}
