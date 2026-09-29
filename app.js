@@ -276,7 +276,7 @@
           id,
           name: String(item.name),
           url: String(item.url || 'shop.html').replace('shop.html#tcg-inventory','pokemon.html'),
-          image: item.image || '',
+          image: id === 'stellar10' ? '' : (item.image || ''),
           price: id === 'stellar10' ? 5 : normalizePrice(item.price)
         };
       });
@@ -347,7 +347,7 @@
           id,
           name: saveButton.dataset.name || 'Saved find',
           url: String(saveButton.dataset.url || 'shop.html').replace('shop.html#tcg-inventory','pokemon.html'),
-          image: saveButton.dataset.image || '',
+          image: id === 'stellar10' ? '' : (saveButton.dataset.image || ''),
           price: normalizePrice(saveButton.dataset.price)
         });
 
