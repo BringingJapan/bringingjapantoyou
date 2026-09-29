@@ -275,7 +275,7 @@
         return {
           id,
           name: String(item.name),
-          url: item.url || 'shop.html',
+          url: String(item.url || 'shop.html').replace('shop.html#tcg-inventory','pokemon.html'),
           image: item.image || '',
           price: id === 'stellar10' ? 5 : normalizePrice(item.price)
         };
@@ -346,7 +346,7 @@
         saved.push({
           id,
           name: saveButton.dataset.name || 'Saved find',
-          url: saveButton.dataset.url || 'shop.html',
+          url: String(saveButton.dataset.url || 'shop.html').replace('shop.html#tcg-inventory','pokemon.html'),
           image: saveButton.dataset.image || '',
           price: normalizePrice(saveButton.dataset.price)
         });
@@ -518,7 +518,7 @@
   if (!reduceMotion && 'IntersectionObserver' in window) {
     const revealTargets = [
       ...document.querySelectorAll(
-        'main > section, .radar-card, .product-card, .tool-card, .inventory-slot, .stock-card'
+        'main > section, .radar-card, .product-card, .tool-card, .inventory-slot, .stock-card, .destination-card, .directory-card'
       )
     ];
 
