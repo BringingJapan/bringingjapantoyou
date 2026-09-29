@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /product.html
+Sitemap: https://bringingjapan.github.io/bringingjapantoyou/sitemap.xml
