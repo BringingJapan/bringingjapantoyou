@@ -123,7 +123,7 @@
 
     itemsEl.innerHTML = cart.map((item, index) =>
       '<div class="cart-line">' +
-        '<div class="cart-line-main"><strong>' + item.name + '</strong><span class="cart-item-price">' + (item.price !== null ? '
+        '<div class="cart-line-main"><strong>' + item.name + '</strong><span class="cart-item-price">' + (item.price !== null ? "$" + item.price.toFixed(2) + ' each' : 'Price pending') + '</span></div>' +
         '<div class="cart-line-actions">' +
           '<div class="qty-control" aria-label="Quantity controls">' +
             '<button type="button" aria-label="Decrease quantity" data-qty-index="' + index + '" data-delta="-1">−</button>' +
