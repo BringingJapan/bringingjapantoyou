@@ -3,6 +3,8 @@
   const themeKey = 'bj2u-theme';
   const cartKey = 'bj2u-cart';
   const savedKey = 'bj2u-saved';
+  const retiredNames = new Set(['Collector Mystery Box', 'Japanese Ceramic Cup']);
+  const retiredSavedIds = new Set(['mystery', 'ceramic']);
 
   const safeParse = (key, fallback = []) => {
     try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); }
@@ -12,7 +14,7 @@
   const toastStack = document.createElement('div');
   toastStack.className = 'toast-stack';
   document.body.appendChild(toastStack);
-  const toast = (message) => {
+  const toast = message => {
     const el = document.createElement('div');
     el.className = 'toast';
     el.textContent = message;
@@ -20,8 +22,6 @@
     setTimeout(() => el.remove(), 2600);
   };
 
-  const initialTheme = localStorage.getItem(themeKey) || 'day';
-  if (initialTheme === 'night') root.dataset.theme = 'night';
   const setTheme = theme => {
     if (theme === 'night') root.dataset.theme = 'night';
     else delete root.dataset.theme;
@@ -31,7 +31,7 @@
       if (btn.classList.contains('utility-button')) btn.innerHTML = theme === 'night' ? '☀ <span>Day</span>' : '◐ <span>Night</span>';
     });
   };
-  setTheme(initialTheme);
+  setTheme(localStorage.getItem(themeKey) || 'day');
 
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -41,7 +41,6 @@
     utilities.innerHTML = '<button class="utility-button" type="button" data-theme-toggle></button><button class="utility-button" type="button" data-saved-open>♡ <span>Saved</span> <b class="count" data-saved-count>0</b></button>';
     const cartButton = nav.querySelector('[data-cart-open]');
     nav.insertBefore(utilities, cartButton || null);
-
     menuButton.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       menuButton.setAttribute('aria-expanded', String(open));
@@ -66,13 +65,12 @@
   const normalizeCart = items => {
     const map = new Map();
     (Array.isArray(items) ? items : []).forEach(item => {
-      if (!item || !item.name) return;
-      const price = Number(item.price) || 0;
+      if (!item || !item.name || retiredNames.has(String(item.name))) return;
+      const name = String(item.name);
       const qty = Math.max(1, Number(item.qty) || 1);
-      const id = item.name + '|' + price;
-      const existing = map.get(id);
+      const existing = map.get(name);
       if (existing) existing.qty += qty;
-      else map.set(id, { name: String(item.name), price, qty });
+      else map.set(name, { name, qty });
     });
     return [...map.values()];
   };
@@ -102,20 +100,21 @@
 
   const renderCart = () => {
     const cart = readCart();
+    writeCart(cart);
     const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
     document.querySelectorAll('[data-cart-count]').forEach(el => el.textContent = String(itemCount));
-    if (!itemsEl || !totalEl) return;
+    if (!itemsEl) return;
 
     if (!cart.length) {
-      itemsEl.innerHTML = '<div class="empty-cart"><strong>Nothing in the bag yet.</strong><p>Use the bag as a preview shortlist while checkout is still being built.</p></div>';
-      totalEl.textContent = '$0.00';
+      itemsEl.innerHTML = '<div class="empty-cart"><strong>No items on your inquiry list.</strong><p>Add confirmed inventory here if you want to ask about launch availability.</p></div>';
+      if (totalEl) totalEl.textContent = 'Pricing pending';
       if (inquiryButton) inquiryButton.disabled = true;
       return;
     }
 
     itemsEl.innerHTML = cart.map((item, index) =>
       '<div class="cart-line">' +
-        '<div class="cart-line-main"><strong>' + item.name + '</strong><span class="cart-item-price">$' + item.price.toFixed(2) + ' each</span></div>' +
+        '<div class="cart-line-main"><strong>' + item.name + '</strong><span class="cart-item-price">Price pending</span></div>' +
         '<div class="cart-line-actions">' +
           '<div class="qty-control" aria-label="Quantity controls">' +
             '<button type="button" aria-label="Decrease quantity" data-qty-index="' + index + '" data-delta="-1">−</button>' +
@@ -127,7 +126,7 @@
       '</div>'
     ).join('');
 
-    totalEl.textContent = '$' + cart.reduce((sum, item) => sum + item.price * item.qty, 0).toFixed(2);
+    if (totalEl) totalEl.textContent = 'Pricing pending';
     if (inquiryButton) inquiryButton.disabled = false;
 
     itemsEl.querySelectorAll('[data-qty-index]').forEach(btn => btn.addEventListener('click', () => {
@@ -152,14 +151,14 @@
   document.querySelectorAll('[data-add-cart]').forEach(button => button.addEventListener('click', () => {
     const cart = readCart();
     const name = String(button.dataset.name || '');
-    const price = Number(button.dataset.price) || 0;
-    const match = cart.find(item => item.name === name && item.price === price);
+    if (!name) return;
+    const match = cart.find(item => item.name === name);
     if (match) match.qty += 1;
-    else cart.push({ name, price, qty: 1 });
+    else cart.push({ name, qty: 1 });
     writeCart(cart);
     renderCart();
     openOverlay(drawer);
-    toast('Added to your preview bag.');
+    toast('Added to your availability inquiry.');
   }));
 
   document.querySelectorAll('[data-cart-open]').forEach(button => button.addEventListener('click', () => openOverlay(drawer)));
@@ -170,44 +169,47 @@
   inquiryButton?.addEventListener('click', () => {
     const cart = readCart();
     if (!cart.length) return;
-    const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0).toFixed(2);
-    const lines = ['Hi Bringing Japan 2 U,', '', 'I’m interested in this preview cart:', ''];
-    cart.forEach(item => lines.push('- ' + item.qty + ' × ' + item.name + ' — $' + (item.price * item.qty).toFixed(2)));
-    lines.push('', 'Preview subtotal: $' + total, '', 'I understand checkout is not live yet. Please let me know availability and next steps.');
-    location.href = 'mailto:bringingjapantoyou@gmail.com?subject=' + encodeURIComponent('Preview Cart Inquiry') + '&body=' + encodeURIComponent(lines.join('\n'));
+    const lines = ['Hi Bringing Japan 2 U,', '', 'I’m interested in availability for:', ''];
+    cart.forEach(item => lines.push('- ' + item.qty + ' × ' + item.name));
+    lines.push('', 'I understand pricing and checkout are not live yet. Please let me know when details are available.');
+    location.href = 'mailto:bringingjapantoyou@gmail.com?subject=' + encodeURIComponent('Inventory Availability Inquiry') + '&body=' + encodeURIComponent(lines.join('\n'));
   });
   renderCart();
 
   const savedDrawer = document.createElement('aside');
   savedDrawer.className = 'saved-drawer';
   savedDrawer.setAttribute('aria-hidden', 'true');
-  savedDrawer.innerHTML = '<div class="saved-head"><div><small>COLLECTOR SHORTLIST</small><strong>Saved finds</strong></div><button type="button" data-saved-close aria-label="Close saved finds">×</button></div><div class="saved-items" data-saved-items></div><div class="saved-foot">Saved locally in this browser. No account needed during pre-launch.</div>';
+  savedDrawer.innerHTML = '<div class="saved-head"><div><small>COLLECTOR SHORTLIST</small><strong>Saved finds</strong></div><button type="button" data-saved-close aria-label="Close saved finds">×</button></div><div class="saved-items" data-saved-items></div><div class="saved-foot">Saved locally in this browser. Pricing will appear only when finalized.</div>';
   document.body.appendChild(savedDrawer);
 
-  const normalizeSaved = items => (Array.isArray(items) ? items : []).filter(item => item && item.id && item.name);
+  const normalizeSaved = items => (Array.isArray(items) ? items : [])
+    .filter(item => item && item.id && item.name && !retiredSavedIds.has(String(item.id)))
+    .map(item => ({ id:String(item.id), name:String(item.name), url:item.url || 'shop.html', image:item.image || '' }));
   const readSaved = () => normalizeSaved(safeParse(savedKey));
   const writeSaved = items => localStorage.setItem(savedKey, JSON.stringify(normalizeSaved(items)));
 
   const renderSaved = () => {
     const saved = readSaved();
+    writeSaved(saved);
     document.querySelectorAll('[data-saved-count]').forEach(el => el.textContent = String(saved.length));
     document.querySelectorAll('[data-save-item]').forEach(btn => {
       const isSaved = saved.some(item => item.id === btn.dataset.id);
       btn.classList.toggle('is-saved', isSaved);
       if (btn.classList.contains('save-fab')) btn.textContent = isSaved ? '♥' : '♡';
       else if (btn.classList.contains('large-save')) btn.textContent = isSaved ? '♥ Saved find' : '♡ Save this find';
+      else if (btn.classList.contains('dossier-save')) btn.textContent = isSaved ? '♥ Saved find' : '♡ Save find';
       btn.setAttribute('aria-pressed', String(isSaved));
     });
 
     const container = savedDrawer.querySelector('[data-saved-items]');
     if (!saved.length) {
-      container.innerHTML = '<div class="empty-cart"><strong>No saved finds yet.</strong><p>Tap a ♡ on a product and it will show up here.</p></div>';
+      container.innerHTML = '<div class="empty-cart"><strong>No saved finds yet.</strong><p>Save confirmed inventory and it will stay here in this browser.</p></div>';
       return;
     }
     container.innerHTML = saved.map(item =>
       '<div class="saved-line">' +
         '<div class="saved-thumb">' + (item.image ? '<img src="' + item.image + '" alt="">' : 'BJ2U') + '</div>' +
-        '<div><strong>' + item.name + '</strong><span>' + (item.price ? '$' + Number(item.price).toFixed(2) : 'Preview') + '</span></div>' +
+        '<div><strong>' + item.name + '</strong><span>Price pending</span></div>' +
         '<div class="saved-line-actions"><a href="' + item.url + '">View →</a><button type="button" data-remove-saved="' + item.id + '">Remove</button></div>' +
       '</div>'
     ).join('');
@@ -227,13 +229,7 @@
         saved.splice(existing, 1);
         toast('Removed from saved finds.');
       } else {
-        saved.push({
-          id,
-          name: saveButton.dataset.name || 'Saved find',
-          price: Number(saveButton.dataset.price) || 0,
-          url: saveButton.dataset.url || 'shop.html',
-          image: saveButton.dataset.image || ''
-        });
+        saved.push({ id, name:saveButton.dataset.name || 'Saved find', url:saveButton.dataset.url || 'shop.html', image:saveButton.dataset.image || '' });
         toast('Saved to your collector shortlist.');
       }
       writeSaved(saved);
@@ -261,12 +257,9 @@
   const sortCards = () => {
     if (!grid || !sort) return;
     const mode = sort.value;
-    const ordered = [...cards].sort((a, b) => {
-      if (mode === 'price-asc') return Number(a.dataset.price) - Number(b.dataset.price);
-      if (mode === 'price-desc') return Number(b.dataset.price) - Number(a.dataset.price);
-      if (mode === 'name') return String(a.dataset.name).localeCompare(String(b.dataset.name));
-      return cards.indexOf(a) - cards.indexOf(b);
-    });
+    const ordered = [...cards].sort((a,b) => mode === 'name'
+      ? String(a.dataset.name).localeCompare(String(b.dataset.name))
+      : cards.indexOf(a) - cards.indexOf(b));
     ordered.forEach(card => grid.appendChild(card));
   };
 
@@ -276,13 +269,11 @@
     cards.forEach(card => {
       const categories = (card.dataset.category || '').split(' ');
       const searchable = (card.dataset.search || '').toLowerCase();
-      const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
-      const matchesSearch = !query || searchable.includes(query);
-      const show = matchesFilter && matchesSearch;
+      const show = (activeFilter === 'all' || categories.includes(activeFilter)) && (!query || searchable.includes(query));
       card.hidden = !show;
       if (show) visible++;
     });
-    if (resultCount) resultCount.textContent = visible + (visible === 1 ? ' signal' : ' signals');
+    if (resultCount) resultCount.textContent = visible + (visible === 1 ? ' confirmed item' : ' confirmed items');
     if (noResults) noResults.hidden = visible !== 0;
     filters.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === activeFilter));
   };
@@ -310,17 +301,7 @@
       const form = new FormData(requestForm);
       const product = String(form.get('product') || '').trim();
       if (!product) return;
-      const lines = [
-        'Hi Bringing Japan 2 U,', '',
-        'I would like to request a Japan find:', '',
-        'Product: ' + product,
-        'Series / brand: ' + String(form.get('series') || ''),
-        'Budget: ' + String(form.get('budget') || ''),
-        'Country: ' + String(form.get('country') || ''),
-        'Name: ' + String(form.get('name') || ''),
-        '', 'Details:', String(form.get('details') || ''), '',
-        'I understand this is a sourcing request, not a confirmed order.'
-      ];
+      const lines = ['Hi Bringing Japan 2 U,','','I would like to request a Japan find:','','Product: ' + product,'Series / brand: ' + String(form.get('series') || ''),'Budget: ' + String(form.get('budget') || ''),'Country: ' + String(form.get('country') || ''),'Name: ' + String(form.get('name') || ''),'','Details:',String(form.get('details') || ''),'','I understand this is a sourcing request, not a confirmed order.'];
       location.href = 'mailto:bringingjapantoyou@gmail.com?subject=' + encodeURIComponent('Japan Find Request — ' + product) + '&body=' + encodeURIComponent(lines.join('\n'));
     });
   }
@@ -329,7 +310,7 @@
     const dock = document.createElement('nav');
     dock.className = 'mobile-dock';
     dock.setAttribute('aria-label', 'Mobile quick navigation');
-    dock.innerHTML = '<a href="index.html"><b>⌂</b><span>Home</span></a><a href="shop.html"><b>⌕</b><span>Drops</span></a><button type="button" data-saved-open><b>♡</b><span>Saved</span></button><button type="button" data-cart-open><b>▣</b><span>Bag</span></button>';
+    dock.innerHTML = '<a href="index.html"><b>⌂</b><span>Home</span></a><a href="shop.html"><b>⌕</b><span>Inventory</span></a><button type="button" data-saved-open><b>♡</b><span>Saved</span></button><button type="button" data-cart-open><b>?</b><span>Inquiry</span></button>';
     document.body.appendChild(dock);
     dock.querySelector('[data-saved-open]').addEventListener('click', () => { closeOverlays(); openOverlay(savedDrawer); });
     dock.querySelector('[data-cart-open]').addEventListener('click', () => openOverlay(drawer));
@@ -337,13 +318,13 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    const revealTargets = [...document.querySelectorAll('main > section, .radar-card, .product-card, .tool-card')];
+    const revealTargets = [...document.querySelectorAll('main > section, .radar-card, .product-card, .tool-card, .inventory-slot')];
     revealTargets.forEach(el => el.classList.add('reveal-ready'));
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
-    }), { threshold: .07, rootMargin: '0px 0px -20px 0px' });
+    }), { threshold:.07, rootMargin:'0px 0px -20px 0px' });
     revealTargets.forEach(el => observer.observe(el));
   }
 })();
