@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /product.html
+Disallow: /product-mysterybox.html
+Disallow: /product-ceramiccup.html
 Sitemap: https://bringingjapan.github.io/bringingjapantoyou/sitemap.xml
