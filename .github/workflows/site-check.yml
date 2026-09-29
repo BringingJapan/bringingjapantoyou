@@ -1,0 +1,26 @@
+name: Storefront quality
+
+on:
+  push:
+    branches: [ main, redesign-v1 ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install quality tools
+        run: npm install
+      - name: Validate storefront
+        run: npm run check
