@@ -100,4 +100,43 @@
   }));
   search?.addEventListener('input', applyFilters);
   if (cards.length) applyFilters();
+
+
+  // Pre-fill sourcing requests from product links.
+  const requestForm = document.querySelector('[data-request-form]');
+  if (requestForm) {
+    const requestParam = new URLSearchParams(location.search).get('request');
+    const productInput = requestForm.elements.product;
+    if (requestParam && productInput) productInput.value = requestParam;
+
+    requestForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = new FormData(requestForm);
+      const product = String(form.get('product') || '').trim();
+      if (!product) return;
+
+      const lines = [
+        'Hi Bringing Japan 2 U,',
+        '',
+        'I would like to request a Japan find:',
+        '',
+        'Product: ' + product,
+        'Series / brand: ' + String(form.get('series') || ''),
+        'Budget: ' + String(form.get('budget') || ''),
+        'Country: ' + String(form.get('country') || ''),
+        'Name: ' + String(form.get('name') || ''),
+        '',
+        'Details:',
+        String(form.get('details') || ''),
+        '',
+        'I understand this is a sourcing request, not a confirmed order.'
+      ];
+      const subject = 'Japan Find Request — ' + product;
+      const href = 'mailto:bringingjapantoyou@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+      const status = document.querySelector('[data-form-status]');
+      if (status) status.textContent = 'Opening your email app with the request filled in…';
+      location.href = href;
+    });
+  }
+
 })();
