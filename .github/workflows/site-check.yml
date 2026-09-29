@@ -2,12 +2,16 @@ name: Storefront quality
 
 on:
   push:
-    branches: [ main, redesign-v1 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 permissions:
   contents: read
+
+concurrency:
+  group: storefront-quality-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate:
@@ -19,8 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install quality tools
-        run: npm install
+        run: npm install --no-audit --no-fund
       - name: Validate storefront
         run: npm run check
