@@ -1,110 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Confirmed and incoming Japan-sourced inventory at Bringing Japan 2 U.">
-  <title>Inventory Room — Bringing Japan 2 U</title>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Shop Bringing Japan 2 U by category: Pokémon, character goods, Japanese lifestyle and baseball.">
+  <title>Shop by Category — Bringing Japan 2 U</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
-  <meta name="theme-color" content="#e7382d"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><meta name="theme-color" content="#e7382d"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="manifest" href="site.webmanifest">
   <link rel="canonical" href="https://bringingjapan.github.io/bringingjapantoyou/shop.html">
-  <meta property="og:type" content="website"><meta property="og:site_name" content="Bringing Japan 2 U"><meta property="og:title" content="Inventory Room — Bringing Japan 2 U"><meta property="og:description" content="Confirmed and incoming Japan-sourced inventory."><meta property="og:url" content="https://bringingjapan.github.io/bringingjapantoyou/shop.html"><meta name="twitter:card" content="summary">
 </head>
-<body class="v2-page">
-<div class="announcement v2-announcement"><span>FIRST WAVE</span><b>11 CONFIRMED PRODUCT LINES</b><span>JP + EN</span><b>STELLAR $5 / PACK</b></div>
-<header class="site-header v2-header"><a class="brand-lockup" href="index.html"><span class="brand-mark">BJ2U</span><span><strong>Bringing Japan 2 U</strong><small>日本から、あなたへ</small></span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button><nav class="site-nav"><a href="index.html">Home</a><a class="active" href="shop.html">Inventory</a><a href="index.html#radar">Japan Radar</a><a href="about.html">Story</a><a href="contact.html">Request</a><button class="cart-button" type="button" data-cart-open>Inquiry <span data-cart-count>0</span></button></nav></header>
-
+<body class="v2-page category-era">
+<div class="announcement v2-announcement"><span>SHOP BY CATEGORY</span><b>FIND YOUR LANE</b><span>REAL INVENTORY ONLY</span><b>MORE COMING</b></div>
+<header class="site-header v2-header">
+  <a class="brand-lockup" href="index.html"><span class="brand-mark">BJ2U</span><span><strong>Bringing Japan 2 U</strong><small>日本から、あなたへ</small></span></a>
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+  <nav class="site-nav category-nav">
+    <a href="index.html">Home</a><a class="active" href="shop.html">Shop</a><a href="pokemon.html">Pokémon</a><a href="character.html">Character</a><a href="seikatsu.html">Lifestyle</a><a href="baseball.html">Baseball</a><a class="request-nav" href="contact.html">Request</a><button class="cart-button" type="button" data-cart-open>Inquiry <span data-cart-count>0</span></button>
+  </nav>
+</header>
 <main>
-<section class="drop-room-hero inventory-hero">
-  <div><div class="signal-kicker"><span class="live-dot"></span> INVENTORY ROOM / FIRST WAVE LOADED</div><h1>The shelf just got<br><em>a lot more real.</em></h1><p>Japanese packs, Pokémon Center special boxes, a Mega Gallade ex set, plus three English ETBs. Known quantities are shown; uncounted packs stay marked “counting stock.”</p></div>
-  <div class="drop-room-mark"><span>在</span><b>REAL<br>STOCK</b><small>NO PLACEHOLDER PRODUCTS</small></div>
-</section>
+  <section class="shop-category-hero">
+    <div><span class="signal-kicker"><span class="live-dot"></span> SHOP / CATEGORY DIRECTORY</span><h1>Don’t browse a warehouse.<br><em>Pick your world.</em></h1><p>Each collection has its own page so Pokémon doesn’t feel mixed with baseball, and lifestyle goods don’t get buried under cards.</p></div>
+    <div class="shop-category-seal"><span>選</span><b>CHOOSE<br>YOUR LANE</b><small>LESS CONFUSION / BETTER DISCOVERY</small></div>
+  </section>
 
-<section class="inventory-status-board inventory-status-wide"><div class="status-board-label"><span>FIRST WAVE</span><b>11 LINES</b></div><div class="inventory-slot confirmed"><span>JP / PACKS</span><strong>6 set lines</strong><small>STELLAR + MORE</small></div><div class="inventory-slot confirmed alt"><span>JP / BOXES</span><strong>4 product lines</strong><small>SPECIAL + SEALED</small></div><div class="inventory-slot english"><span>EN / ETBs</span><strong>3 units</strong><small>2 + 1 CONFIRMED</small></div><div class="inventory-slot scanning"><span>NEXT</span><strong>More to come</strong><small>SOURCING</small></div></section>
+  <section class="category-directory-grid">
+    <a class="directory-card directory-pokemon" href="pokemon.html"><span>01</span><div class="directory-jp">カード</div><h2>Pokémon</h2><p>All confirmed Pokémon TCG inventory lives here.</p><b>SHOP NOW →</b></a>
+    <a class="directory-card directory-character" href="character.html"><span>02</span><div class="directory-jp">推し</div><h2>Character Goods</h2><p>Anime, mascots, licensed goods and blind collectibles.</p><b>EXPLORE →</b></a>
+    <a class="directory-card directory-life" href="seikatsu.html"><span>03</span><div class="directory-jp">生活</div><h2>Japan Lifestyle</h2><p>Stationery, ceramics, desk goods and useful Japanese design.</p><b>EXPLORE →</b></a>
+    <a class="directory-card directory-baseball" href="baseball.html"><span>04</span><div class="directory-jp">野球</div><h2>Japanese Baseball</h2><p>One simple page for every confirmed baseball item.</p><b>EXPLORE →</b></a>
+  </section>
 
-<section class="section-wrap confirmed-inventory" id="tcg-inventory">
-  <div class="section-heading"><div><div class="eyebrow">CONFIRMED INVENTORY / WAVE 001</div><h2>What we actually have coming in.</h2></div><button class="saved-inline" type="button" data-saved-open>♡ Saved <span data-saved-count>0</span></button></div>
+  <section class="shop-now-strip">
+    <div><span class="eyebrow">LIVE RIGHT NOW</span><h2>Pokémon is the first shelf with confirmed inventory.</h2><p>Stellar Miracle is $5 per pack, with more Japanese packs, special boxes and English ETBs already loaded into the Pokémon collection.</p></div>
+    <a class="button button-primary" href="pokemon.html">Shop Pokémon now</a>
+  </section>
 
-  <div class="inventory-group-head"><span>日本 / JAPANESE</span><strong>Pokémon TCG</strong><small>9 product lines</small></div>
-  <div class="real-inventory-grid">
-    <article class="stock-card stock-feature"><div class="stock-visual stock-photo"><img src="img/stellar-miracle.jpg" alt="Japanese Stellar Miracle booster packs"><span class="stock-origin">JP</span><span class="stock-code">SV7</span></div><div class="stock-body"><span class="stock-kicker">SCARLET &amp; VIOLET / BOOSTER PACK</span><h3>Stellar Miracle</h3><p>Single sealed Japanese booster pack. Five cards per pack.</p><div class="stock-facts"><span>QTY <b>Counting stock</b></span><span>PRICE <b>$5 / pack</b></span></div><div class="stock-actions"><a href="product-stellar10.html">Details →</a><button type="button" data-add-cart data-name="Stellar Miracle Booster Pack" data-price="5">+ Inquiry</button><button type="button" data-save-item data-id="stellar10" data-name="Stellar Miracle Booster Pack" data-price="5" data-url="product-stellar10.html" data-image="img/stellar-miracle.jpg">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-red"><span class="stock-origin">JP</span><span class="stock-code">M3</span><strong>ムニキス<br>ゼロ</strong></div><div class="stock-body"><span class="stock-kicker">MEGA / BOOSTER PACK</span><h3>Munikis Zero <small>/ Nihil Zero</small></h3><p>Japanese M3 expansion. Five cards per pack.</p><div class="stock-facts"><span>QTY <b>Counting packs</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Munikis Zero Booster Pack">+ Inquiry</button><button type="button" data-save-item data-id="munikis-zero" data-name="Munikis Zero Booster Pack" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-blue"><span class="stock-origin">JP</span><span class="stock-code">M4</span><strong>ニンジャ<br>スピナー</strong></div><div class="stock-body"><span class="stock-kicker">MEGA / BOX + LOOSE PACKS</span><h3>Ninja Spinner</h3><p>Mega Greninja-focused Japanese expansion.</p><div class="stock-facts"><span>BOX <b>Qty 1</b></span><span>PACKS <b>Counting stock</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Ninja Spinner — Sealed Box">+ Box inquiry</button><button type="button" data-add-cart data-name="Ninja Spinner — Booster Pack">+ Pack inquiry</button><button type="button" data-save-item data-id="ninja-spinner" data-name="Ninja Spinner" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-gold"><span class="stock-origin">JP</span><span class="stock-code">PC TOHOKU</span><strong>東北<br>SPECIAL</strong></div><div class="stock-body"><span class="stock-kicker">POKÉMON CENTER / SPECIAL BOX</span><h3>Pokémon Center Tohoku Special Box</h3><p>Tohoku’s Pikachu promo, card box, deck sleeves and deck case.</p><div class="stock-facts"><span>QTY <b>1 box</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Pokémon Center Tohoku Special Box">+ Inquiry</button><button type="button" data-save-item data-id="tohoku-box" data-name="Pokémon Center Tohoku Special Box" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-aqua"><span class="stock-origin">JP</span><span class="stock-code">PC FUKUOKA</span><strong>福岡<br>SPECIAL</strong></div><div class="stock-body"><span class="stock-kicker">POKÉMON CENTER / SPECIAL BOX</span><h3>Pokémon Center Fukuoka Special Box</h3><p>Fukuoka’s Pikachu promo, card box, deck sleeves and deck case.</p><div class="stock-facts"><span>QTY <b>2 boxes</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Pokémon Center Fukuoka Special Box">+ Inquiry</button><button type="button" data-save-item data-id="fukuoka-box" data-name="Pokémon Center Fukuoka Special Box" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-night"><span class="stock-origin">JP</span><span class="stock-code">SV6a</span><strong>NIGHT<br>WANDERER</strong></div><div class="stock-body"><span class="stock-kicker">SCARLET &amp; VIOLET / BOOSTER PACK</span><h3>Night Wanderer</h3><p>Japanese enhanced expansion pack. Five cards per pack.</p><div class="stock-facts"><span>QTY <b>Counting packs</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Night Wanderer Booster Pack">+ Inquiry</button><button type="button" data-save-item data-id="night-wanderer" data-name="Night Wanderer Booster Pack" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-emerald"><span class="stock-origin">JP</span><span class="stock-code">M6</span><strong>STORM<br>EMERALDA</strong></div><div class="stock-body"><span class="stock-kicker">MEGA / BOOSTER PACK</span><h3>Storm Emeralda</h3><p>Japanese M6 expansion. Five cards per pack.</p><div class="stock-facts"><span>QTY <b>Counting packs</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Storm Emeralda Booster Pack">+ Inquiry</button><button type="button" data-save-item data-id="storm-emeralda" data-name="Storm Emeralda Booster Pack" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-dream"><span class="stock-origin">JP</span><span class="stock-code">M2a</span><strong>MEGA<br>DREAM ex</strong></div><div class="stock-body"><span class="stock-kicker">HIGH CLASS / BOOSTER PACK</span><h3>MEGA Dream ex</h3><p>Japanese high-class pack. Ten cards per pack.</p><div class="stock-facts"><span>QTY <b>Counting packs</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="MEGA Dream ex Booster Pack">+ Inquiry</button><button type="button" data-save-item data-id="mega-dream" data-name="MEGA Dream ex Booster Pack" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-
-    <article class="stock-card"><div class="stock-visual stock-type-violet"><span class="stock-origin">JP</span><span class="stock-code">SPECIAL SET</span><strong>MEGA<br>GALLADE ex</strong></div><div class="stock-body"><span class="stock-kicker">SPECIAL CARD SET</span><h3>Mega Gallade ex Special Card Set</h3><p>Promo set with Mega Gallade ex and eight Munikis Zero booster packs.</p><div class="stock-facts"><span>QTY <b>1 set</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Mega Gallade ex Special Card Set">+ Inquiry</button><button type="button" data-save-item data-id="gallade-set" data-name="Mega Gallade ex Special Card Set" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-  </div>
-
-  <div class="inventory-group-head english-head"><span>EN / ENGLISH</span><strong>Elite Trainer Boxes</strong><small>3 units</small></div>
-  <div class="real-inventory-grid english-inventory">
-    <article class="stock-card"><div class="stock-visual stock-type-hero"><span class="stock-origin en">EN</span><span class="stock-code">ETB</span><strong>ASCENDED<br>HEROES</strong></div><div class="stock-body"><span class="stock-kicker">MEGA EVOLUTION / ELITE TRAINER BOX</span><h3>Ascended Heroes ETB</h3><p>English standard Elite Trainer Box.</p><div class="stock-facts"><span>QTY <b>2 ETBs</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="Ascended Heroes Elite Trainer Box">+ Inquiry</button><button type="button" data-save-item data-id="ascended-etb" data-name="Ascended Heroes Elite Trainer Box" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-    <article class="stock-card"><div class="stock-visual stock-type-30"><span class="stock-origin en">EN</span><span class="stock-code">30TH / ETB</span><strong>30th<br>CELEBRATION</strong></div><div class="stock-body"><span class="stock-kicker">30TH ANNIVERSARY / ELITE TRAINER BOX</span><h3>30th Celebration ETB</h3><p>English 30th Celebration standard Elite Trainer Box.</p><div class="stock-facts"><span>QTY <b>1 ETB</b></span><span>PRICE <b>Pending</b></span></div><div class="stock-actions"><button type="button" data-add-cart data-name="30th Celebration Elite Trainer Box">+ Inquiry</button><button type="button" data-save-item data-id="30th-etb" data-name="30th Celebration Elite Trainer Box" data-url="shop.html#tcg-inventory">♡</button></div></div></article>
-  </div>
-</section>
-
-<section class="incoming-board">
-  <div class="incoming-heading"><span class="micro-label">WHAT COMES AFTER WAVE 001</span><h2>More is still coming.</h2><p>The first shelf is real now. These sourcing lanes are where we’re looking next after the current inventory is counted and priced.</p></div>
-  <div class="incoming-lanes">
-    <a href="contact.html?request=More%20Japanese%20TCG"><span>LANE 01</span><strong>More Japanese TCG</strong><small>REQUEST →</small></a>
-    <a href="contact.html?request=Pokemon%20Center%20exclusive"><span>LANE 02</span><strong>Pokémon Center exclusives</strong><small>REQUEST →</small></a>
-    <a href="contact.html?request=Anime%20or%20character%20goods"><span>LANE 03</span><strong>Character goods</strong><small>REQUEST →</small></a>
-    <a href="#yakyu"><span>LANE 04</span><strong>Japanese baseball</strong><small>EXPLORE →</small></a>
-  </div>
-</section>
-
-
-<section class="seikatsu-lane" id="seikatsu">
-  <div class="seikatsu-intro">
-    <span class="micro-label">生活 / SEIKATSU</span>
-    <h2>Japan lifestyle deserves its own shelf.</h2>
-    <p>This lane is for useful, beautiful, distinctly Japanese everyday goods—not random souvenirs. We’re currently scouting products before any of them become official inventory.</p>
-  </div>
-  <div class="seikatsu-grid">
-    <div class="seikatsu-card"><span>01 / WRITE</span><strong>Stationery</strong><p>Limited pens, mechanical pencils, notebooks, stickers, stamps and desk tools.</p><small>SCOUTING</small></div>
-    <div class="seikatsu-card"><span>02 / HOME</span><strong>Ceramics + tableware</strong><p>Mugs, small plates, bowls and useful pieces with real Japanese design character.</p><small>SCOUTING</small></div>
-    <div class="seikatsu-card"><span>03 / CARRY</span><strong>Pouches + small goods</strong><p>Compact organizers, character accessories, charms and clever everyday carry.</p><small>SCOUTING</small></div>
-    <div class="seikatsu-card"><span>04 / ODDLY GOOD</span><strong>Japan-only finds</strong><p>The hard-to-categorize things that make Japanese retail fun in the first place.</p><small>SCOUTING</small></div>
-  </div>
-  <div class="seikatsu-foot"><p>When a lifestyle item is actually confirmed, it graduates from this radar into the Inventory Room with real photos and details.</p><a class="button button-dark" href="contact.html?request=Japan%20lifestyle%20or%20Seikatsu%20item">Suggest a Seikatsu item</a></div>
-</section>
-
-
-<section class="yakyu-lane" id="yakyu">
-  <div class="yakyu-intro">
-    <span class="micro-label">野球 / YAKYŪ</span>
-    <h2>Japanese baseball has its own gear culture.</h2>
-    <p>This lane is for products that feel distinctly Japanese: NPB team goods, limited-event merch, Japan-market player gear, and compact accessories that baseball people actually use.</p>
-  </div>
-  <div class="yakyu-grid">
-    <div class="yakyu-card"><span>01 / TEAM</span><strong>NPB team goods</strong><p>Caps, towels, shirts, keychains, player-name goods and stadium-exclusive merch.</p><small>SCOUTING</small></div>
-    <div class="yakyu-card"><span>02 / PLAYER</span><strong>Batting gear</strong><p>Japanese-market batting gloves, wristbands, grips and accessories from brands like ZETT, Mizuno and SSK.</p><small>SCOUTING</small></div>
-    <div class="yakyu-card"><span>03 / FIELD</span><strong>Training + equipment</strong><p>Compact training tools, glove-care items, baseballs and specialty accessories with Japan-market appeal.</p><small>SCOUTING</small></div>
-    <div class="yakyu-card"><span>04 / STADIUM</span><strong>Limited collectibles</strong><p>All-Star, event, mascot and collaboration goods that feel tied to Japanese baseball culture.</p><small>SCOUTING</small></div>
-  </div>
-  <div class="yakyu-feature">
-    <div><span class="micro-label">WHY THIS LANE WORKS</span><h3>Baseball connects the whole store.</h3><p>It can overlap with Pokémon collaborations, collector merchandise, real performance gear, and Japan-only stadium culture—without feeling forced.</p></div>
-    <div class="yakyu-signal"><span>NPB</span><strong>TEAM GOODS</strong><span>+</span><strong>PLAYER GEAR</strong><span>+</span><strong>COLLECTIBLES</strong></div>
-  </div>
-  <div class="seikatsu-foot"><p>Nothing here is listed as inventory yet. Once we confirm a specific baseball item, it gets a real product page with photos, sizing, condition and pricing status.</p><a class="button button-dark" href="contact.html?request=Japanese%20baseball%20gear%20or%20NPB%20merch">Suggest a baseball item</a></div>
-</section>
-
-<section class="shop-editorial">
-  <div class="shop-editorial-number">01</div>
-  <div><div class="eyebrow light">FIRST PRODUCT, THEN THE SHELF</div><h2>We’re building inventory in public.</h2><p>When the next real item is confirmed, it gets its own photography, exact product details and honest status. Until then, open slots stay open.</p><a href="about.html">Read our inventory standard →</a></div>
-</section>
+  <section class="request-banner request-only-banner">
+    <div><div class="eyebrow">LOOKING FOR ONE SPECIFIC THING?</div><h2>Use Request separately.</h2><p>Browse categories when you want to discover. Use Request only when you already know what you want us to hunt.</p></div>
+    <a class="button button-dark" href="contact.html">Open Request Desk</a>
+  </section>
 </main>
-
-<footer class="site-footer v2-footer"><div class="footer-brand"><strong>BRINGING JAPAN 2 U</strong><span>日本から、あなたへ</span><small>Real inventory first / pre-launch</small></div><div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Inventory</a><a href="about.html">Story</a><a href="faq.html">FAQ</a><a href="policies.html">Policies</a><a href="contact.html">Request</a></div><p>Independent retailer of authentic Japanese goods. Third-party brands and characters belong to their respective owners. © 2026 Bringing Japan 2 U.</p></footer>
-<aside class="cart-drawer" aria-hidden="true" data-cart-drawer><div class="cart-head"><div><small>AVAILABILITY INQUIRY</small><strong>Your list</strong></div><button type="button" data-cart-close aria-label="Close inquiry list">×</button></div><div class="cart-items" data-cart-items></div><div class="cart-foot"><div><span>Status</span><strong data-cart-total>Pricing pending</strong></div><button class="button button-primary" type="button" data-cart-inquiry>Email availability inquiry</button><small>No payment is collected on this preview site.</small></div></aside><div class="drawer-backdrop" data-cart-backdrop></div><script src="app.js"></script>
+<footer class="site-footer v2-footer"><div class="footer-brand"><strong>BRINGING JAPAN 2 U</strong><span>日本から、あなたへ</span><small>Shop Japan by collection</small></div><div class="footer-links"><a href="pokemon.html">Pokémon</a><a href="character.html">Character</a><a href="seikatsu.html">Lifestyle</a><a href="baseball.html">Baseball</a><a href="contact.html">Request</a></div><p>Independent retailer of authentic Japanese goods. Third-party brands and characters belong to their respective owners. © 2026 Bringing Japan 2 U.</p></footer>
+<aside class="cart-drawer" aria-hidden="true" data-cart-drawer><div class="cart-head"><div><small>AVAILABILITY INQUIRY</small><strong>Your list</strong></div><button type="button" data-cart-close aria-label="Close inquiry list">×</button></div><div class="cart-items" data-cart-items></div><div class="cart-foot"><div><span>Status</span><strong data-cart-total>No items</strong></div><button class="button button-primary" type="button" data-cart-inquiry>Email availability inquiry</button><small>No payment is collected on this preview site.</small></div></aside><div class="drawer-backdrop" data-cart-backdrop></div><script src="app.js"></script>
 </body></html>
