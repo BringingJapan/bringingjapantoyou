@@ -1,0 +1,9 @@
+{
+  "name": "Bringing Japan 2 U",
+  "short_name": "BJ2U",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffaf1",
+  "theme_color": "#e7382d",
+  "description": "Authentic Japanese collectibles, anime goods and culture finds."
+}
